@@ -23,8 +23,8 @@ const Footer: React.FC = () => {
         },
         {
           key: 'github',
-          title: <><GithubOutlined/> 鱼皮 GitHub</>,
-          href: 'https://github.com/liyupi',
+          title: <><GithubOutlined/> 小李 GitHub</>,
+          href: 'https://github.com/2120454642',
           blankTarget: true,
         },
 
