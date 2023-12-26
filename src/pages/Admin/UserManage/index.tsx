@@ -104,7 +104,11 @@ export default () => {
       cardBordered
       request={async (params = {}, sort, filter) => {
         console.log(sort, filter);
-        const userList = await searchUsers();
+        const localToken = localStorage.getItem('token');
+        const currentUserAccount = localToken ? localToken.split('-')[0] : '';
+        const userList = await searchUsers({
+          currentUserAccount: currentUserAccount,
+        });
         return {
           data: userList,
         };

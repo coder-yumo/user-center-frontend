@@ -15,8 +15,13 @@ export type GlobalHeaderRightProps = {
 /**
  * 退出登录，并且将当前的 url 保存
  */
-const loginOut = async () => {
-  await outLogin();
+const loginOut = async (values: API.LogoutParams) => {
+  const userList = localStorage.getItem('token').split('-');
+  await outLogin({
+    userAccount: userList[0],
+    uuid: userList[1],
+  });
+
   const { query = {}, search, pathname } = history.location;
   const { redirect } = query;
   // Note: There may be security issues, please note
@@ -93,7 +98,12 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
   return (
     <HeaderDropdown overlay={menuHeaderDropdown}>
       <span className={`${styles.action} ${styles.account}`}>
-        <Avatar size="small" className={styles.avatar} src={currentUser.avatarUrl} alt="avatarUrl" />
+        <Avatar
+          size="small"
+          className={styles.avatar}
+          src={currentUser.avatarUrl}
+          alt="avatarUrl"
+        />
         <span className={`${styles.name} anticon`}>{currentUser.username ?? '无名'}</span>
       </span>
     </HeaderDropdown>

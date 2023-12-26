@@ -29,6 +29,10 @@ declare namespace API {
     pageSize?: number;
   };
 
+  type searchParams = {
+    currentUserAccount?: string;
+  };
+
   type RuleListItem = {
     key?: number;
     disabled?: boolean;
@@ -69,9 +73,14 @@ declare namespace API {
   type LoginParams = {
     userAccount?: string;
     userPassword?: string;
+    uuid?: string;
     autoLogin?: boolean;
     type?: string;
-    uuid?:string
+  };
+
+  type LogoutParams = {
+    userAccount?: string;
+    uuid?: string;
   };
 
   type currentParams = {

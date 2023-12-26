@@ -50,7 +50,12 @@ export async function getInitialState(): Promise<{
       settings: defaultSettings,
     };
   }
-  const currentUser = await fetchUserInfo();
+  // @ts-ignore
+  const userList = localStorage.getItem('token').split('-');
+  const currentUser = await fetchUserInfo({
+    userAccount: userList[0],
+    uuid: userList[1],
+  });
   return {
     // @ts-ignore
     fetchUserInfo,
