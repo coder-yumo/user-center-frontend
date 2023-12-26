@@ -38,8 +38,9 @@ const Login: React.FC = () => {
   const handleSubmit = async (values: API.LoginParams) => {
     try {
       // 登录
-      const user = await login({ ...values, type });
-
+      const localToken = localStorage.getItem('token')
+      let uuid = localToken ? localToken.split('-')[0] : ''
+      const user = await login({ ...values, type, uuid });
       if (user) {
         localStorage.setItem('token', user);
         const defaultLoginSuccessMessage = '登录成功！';

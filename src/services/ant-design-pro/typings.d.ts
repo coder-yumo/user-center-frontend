@@ -71,6 +71,7 @@ declare namespace API {
     userPassword?: string;
     autoLogin?: boolean;
     type?: string;
+    uuid?:string
   };
 
   type currentParams = {
