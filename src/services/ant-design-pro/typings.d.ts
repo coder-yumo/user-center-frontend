@@ -7,7 +7,7 @@ declare namespace API {
     username: string;
     userAccount: string;
     avatarUrl?: string;
-    gender:number;
+    gender: number;
     phone: string;
     email: string;
     userStatus: number;
@@ -48,11 +48,11 @@ declare namespace API {
    * 通用返回类
    */
   type BaseResponse<T> = {
-    code: number,
-    data: T,
-    message: string,
-    description: string,
-  }
+    code: number;
+    data: T;
+    message: string;
+    description: string;
+  };
 
   type RuleList = {
     data?: RuleListItem[];
@@ -71,6 +71,11 @@ declare namespace API {
     userPassword?: string;
     autoLogin?: boolean;
     type?: string;
+  };
+
+  type currentParams = {
+    userAccount?: string;
+    uuid?: string;
   };
 
   type RegisterParams = {

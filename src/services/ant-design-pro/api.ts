@@ -3,8 +3,9 @@
 import request from '@/plugins/globalRequest';
 
 /** 获取当前的用户 GET /api/user/current */
-export async function currentUser(options?: { [key: string]: any }) {
+export async function currentUser(body: API.currentParams, options?: { [key: string]: any }) {
   return request<API.BaseResponse<API.CurrentUser>>('/api/user/current', {
+    params: body,
     method: 'GET',
     ...(options || {}),
   });
@@ -49,7 +50,6 @@ export async function searchUsers(options?: { [key: string]: any }) {
     ...(options || {}),
   });
 }
-
 
 /** 此处后端没有提供注释 GET /api/notices */
 export async function getNotices(options?: { [key: string]: any }) {
