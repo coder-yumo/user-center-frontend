@@ -39,7 +39,7 @@ const Login: React.FC = () => {
     try {
       // 登录
       const localToken = localStorage.getItem('token')
-      let uuid = localToken ? localToken.split('-')[0] : ''
+      const uuid = localToken ? localToken.split('-')[0] : ''
       const user = await login({ ...values, type, uuid });
       if (user) {
         localStorage.setItem('token', user);
